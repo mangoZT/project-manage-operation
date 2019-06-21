@@ -12,6 +12,7 @@
         "watch": true,
         "baseUrl":".",
         "paths": {
+            "@/*": ["../src/*"],
             "@pages/*": ["../src/pages/*"],
             "@stores/*": ["../src/stores/*"]
         }

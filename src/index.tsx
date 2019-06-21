@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'mobx-react';
-import * as _  from 'lodash';
-import App from '@pages';
+import _ from 'lodash';
+import App from '@/app';
 import stores from "@stores";
 
 

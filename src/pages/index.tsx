@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { Button } from 'antd';
 
-
-
-
 const App = inject('appStore')(observer((props) => {
     return (
         <div className="header">

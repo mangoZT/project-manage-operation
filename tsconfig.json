@@ -10,11 +10,11 @@
         "strict": false,
         "allowSyntheticDefaultImports": true,
         "watch": true,
-        // "baseUrl":".",
-        // "paths": {
-        //     "@pages/*": ["../src/pages/*"],
-        //     "@stores/*": ["../src/stores/*"]
-        // }
+        "baseUrl":".",
+        "paths": {
+            "@pages/*": ["../src/pages/*"],
+            "@stores/*": ["../src/stores/*"]
+        }
     },
     "exclude": ["dist", "node_modules"],
     "include": [

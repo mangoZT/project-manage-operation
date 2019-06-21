@@ -15,9 +15,16 @@ module.exports = {
         chunkFilename:'[name].js'
     },
     resolve: {
-        modules: [
-            "node_modules",
-        ],
+        alias: {
+            "@pages": path.resolve(__dirname, '../src/pages'),
+            "@components": path.join(__dirname, '../src/components'),
+            "@router": path.join(__dirname, '../src/router'),
+            "@images": path.join(__dirname, '../src/images'),
+            "@apis": path.join(__dirname, '../src/apis'),
+            "@models": path.join(__dirname, '../src/models'),
+            "@utils": path.join(__dirname, '../src/utils'),
+            "@stores": path.join(__dirname, '../src/stores'),
+        },
         extensions: [".ts", ".tsx", ".js", 'config.js', ".json"]
     },
     devServer:{
@@ -96,18 +103,5 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    },
-    // 别名配置
-    // resolve: {
-    //     alias: {
-    //         "@pages": path.resolve(__dirname, '../src/pages'),
-    //         // components: path.join(__dirname, '../src/components'),
-    //         // router: path.join(__dirname, '../src/router'),
-    //         // images: path.join(__dirname, '../src/images'),
-    //         // apis: path.join(__dirname, '../src/apis'),
-    //         // models: path.join(__dirname, '../src/models'),
-    //         // utils: path.join(__dirname, '../src/utils'),
-    //         "@stores": path.join(__dirname, '../src/stores'),
-    //     }
-    // },
+    }
 }

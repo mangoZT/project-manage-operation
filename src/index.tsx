@@ -2,8 +2,8 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from 'mobx-react';
 import * as _  from 'lodash';
-import App from './pages';
-import stores from "./stores";
+import App from '@pages';
+import stores from "@stores";
 
 
 ReactDOM.render(

@@ -1,3 +1,11 @@
+/*
+ * @Date: 2019-06-20 14:32:41
+ * @Author: zhuhu
+ * @LastEditors: zhuhu
+ * @LastEditTime: 2019-06-24 20:18:36
+ * @Description: 系统store
+ */
+
 import { observable, computed, action } from "mobx";
 
 class AppStore {

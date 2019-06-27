@@ -1,10 +1,20 @@
+/*
+ * @Date: 2019-06-18 17:53:50
+ * @Author: zhuhu
+ * @LastEditors: zhuhu
+ * @LastEditTime: 2019-06-24 22:37:53
+ * @Description: 项目入口
+ */
+
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Provider } from 'mobx-react';
-import _ from 'lodash';
-import App from '@/app';
-import stores from "@stores";
+import { Provider } from "mobx-react";
+import _ from "lodash";
+import App from "./app";
+import stores from "./stores";
+import  "./style.less";
 
+import '../mock/mock';
 
 ReactDOM.render(
     <Provider {...stores}>

@@ -12,9 +12,14 @@
         "watch": true,
         "baseUrl":".",
         "paths": {
-            "@/*": ["../src/*"],
-            "@pages/*": ["../src/pages/*"],
-            "@stores/*": ["../src/stores/*"]
+            "@pages/*": ["./src/pages/*"],
+            "@stores/*": ["./src/stores/*"],
+            "@components/*": ["./src/components/*"],
+            "@router/*": ["./src/router/*"],
+            "@images/*": ["./src/images/*"],
+            "@apis/*": ["./src/apis/*"],
+            "@models/*": ["./src/models/*"],
+            "@utils/*": ["./src/utils/*"],
         }
     },
     "exclude": ["dist", "node_modules"],

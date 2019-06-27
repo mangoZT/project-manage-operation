@@ -1,3 +1,10 @@
+/*
+ * @Date: 2019-06-21 16:35:29
+ * @Author: zhuhu
+ * @LastEditors: zhuhu
+ * @LastEditTime: 2019-06-24 21:09:37
+ * @Description: 
+ */
 import { observable, action } from "mobx";
 
 interface PostModel {

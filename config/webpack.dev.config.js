@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
     entry:{
@@ -13,20 +14,6 @@ module.exports = {
         path:path.join(__dirname, '../dist'),
         filename:'[name].js',
         chunkFilename:'[name].js'
-    },
-    resolve: {
-        alias: {
-            "@": path.resolve(__dirname, '../src'),
-            "@pages": path.resolve(__dirname, '../src/pages'),
-            "@components": path.join(__dirname, '../src/components'),
-            "@router": path.join(__dirname, '../src/router'),
-            "@images": path.join(__dirname, '../src/images'),
-            "@apis": path.join(__dirname, '../src/apis'),
-            "@models": path.join(__dirname, '../src/models'),
-            "@utils": path.join(__dirname, '../src/utils'),
-            "@stores": path.join(__dirname, '../src/stores'),
-        },
-        extensions: [".ts", ".tsx", ".js", 'config.js', ".json"]
     },
     devServer:{
         host: '0.0.0.0',
@@ -46,17 +33,31 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, '../public/index.html')
-        })
+        }),
+        new LodashModuleReplacementPlugin
     ],
     optimization: {
         splitChunks: {
           chunks: "all",
         },
     },
+    resolve: {
+        alias: {
+            "@pages": path.resolve(__dirname, '../src/pages'),
+            "@components": path.join(__dirname, '../src/components'),
+            "@router": path.join(__dirname, '../src/router'),
+            "@images": path.join(__dirname, '../src/images'),
+            "@apis": path.join(__dirname, '../src/apis'),
+            "@models": path.join(__dirname, '../src/models'),
+            "@utils": path.join(__dirname, '../src/utils'),
+            "@stores": path.join(__dirname, '../src/stores'),
+        },
+        extensions: [".ts", ".tsx", ".js", 'config.js', ".json", '.less']
+    },
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.(ts|tsx)?$/,
                 use: [
                     'ts-loader',
                     {
@@ -75,9 +76,11 @@ module.exports = {
                 test: /\.(css|less)$/,
                 include: path.join(__dirname, '../src'),
                 use: [
-                    'style-loader', {
+                    'style-loader', 
+                    {
                         loader:'css-loader',
                         options: {
+                            sourceMap: true,
                             modules: true,
                             localIdentName: '[local]--[hash:base64:5]'
                         }
@@ -92,6 +95,7 @@ module.exports = {
                 use: [
                     'style-loader', 
                     'css-loader',
+                    'postcss-loader',
                     { loader: 'less-loader', options: { javascriptEnabled: true } }
                 ]
             },

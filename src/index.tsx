@@ -2,7 +2,7 @@
  * @Date: 2019-06-18 17:53:50
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-06-24 22:37:53
+ * @LastEditTime: 2019-07-03 16:26:38
  * @Description: 项目入口
  */
 
@@ -12,7 +12,7 @@ import { Provider } from "mobx-react";
 import _ from "lodash";
 import App from "./app";
 import stores from "./stores";
-import  "./style.less";
+import  "./index.less";
 
 import '../mock/mock';
 

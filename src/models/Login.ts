@@ -2,17 +2,17 @@
  * @Date: 2019-06-21 16:35:29
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-06-24 21:09:37
- * @Description: 
+ * @LastEditTime: 2019-07-03 15:35:04
+ * @Description: 登录模型  返回登录对象
  */
 import { observable, action } from "mobx";
 
-interface PostModel {
+interface IPostModel {
     userName:string;
     userPwd:string;
 }
 
-interface LoginModel extends PostModel {
+interface ILoginModel extends IPostModel {
 
 }
 
@@ -26,13 +26,13 @@ class LoginModel implements LoginModel {
   }
   
   // 登录需要的对象
-  @action updateLoginModel(json:PostModel) {
+  @action updateLoginModel(json:IPostModel) {
     this.userName = json.userName;
     this.userPwd = json.userPwd;
   }
 
   // 静态方法，创建新的LoginModel实例
-  static fromJS(object:PostModel) {
+  static fromJS(object:IPostModel) {
     return new LoginModel(
       object.userName,
       object.userPwd
@@ -40,4 +40,4 @@ class LoginModel implements LoginModel {
   }
 }
 
-export default PostModel;
+export default LoginModel;

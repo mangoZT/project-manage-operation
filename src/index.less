@@ -1,11 +1,13 @@
 @charset "utf-8";
-body,html,#root{width: 100%;height:100%;background: #F4F4F4}
+body,html{width: 100%;height:100%;}
+:global{
+    #root{width: 100%;height:100%;background: #F4F4F4}
+}
 *,a{-webkit-box-sizing:border-box}
 *{margin:0;padding:0;-webkit-tap-highlight-color:transparent;-moz-box-sizing:border-box}
 html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
 body{width:100%;font-family:"Microsoft YaHei","微软雅黑",MicrosoftJhengHei,"华文细黑",Helvetica,Arial,sans-serif;font-size:14px;position:relative;word-break:break-all}
-img{-ms-interpolation-mode:bicubic;vertical-align:middle;border:none}
-img:not([src*="/"]){display:none}
+img{-ms-interpolation-mode:bicubic;vertical-align:middle;border:none;}
 table{border-collapse:collapse;border-spacing:0}
 textarea{resize:none}
 button,input,select,textarea{-webkit-appearance:none;outline:0;border-radius:0}

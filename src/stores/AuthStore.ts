@@ -2,35 +2,35 @@
  * @Date: 2019-06-21 16:47:31
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-06-24 20:18:55
- * @Description: 权限store
+ * @LastEditTime: 2019-07-03 15:28:05
+ * @Description: 登录权限store
  */
 
 import { observable, action } from "mobx";
 
 class AuthStore {
-  api;
-  appStore;
-  @observable username;
-  @observable password;
+  api:any;
+  appStore:any;
+  @observable userName:string;
+  @observable password:string;
 
-  constructor(api, appStore) {
+  constructor(api:any, appStore:any) {
     this.api = api;
     this.appStore = appStore;
   }
 
-  @action setUsername(username) {
-    this.username = username;
+  @action setuserName(userName:string) {
+    this.userName = userName;
   }
 
-  @action setPassword(password) {
+  @action setPassword(password:string) {
     this.password = password;
   }
 
   @action login() {
     this.appStore.increaseRequest();
-    const params = { username: this.username, password: this.password };
-    return this.api.login(params).then(action(data => {
+    const params = { userName: this.userName, password: this.password };
+    return this.api.login(params).then(action((data:any) => {
       this.appStore.decreaseRequest();
       if (!data.error) {
         return Promise.resolve();

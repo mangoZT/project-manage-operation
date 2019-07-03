@@ -2,15 +2,15 @@
  * @Date: 2019-06-20 14:32:41
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-06-24 20:18:36
- * @Description: 系统store
+ * @LastEditTime: 2019-07-03 15:23:25
+ * @Description: 系统store  控制是否在loading，是否发生错误
  */
 
 import { observable, computed, action } from "mobx";
 
 class AppStore {
   @observable requestQuantity = 0;
-  @observable error:any = null;
+  @observable error:string = null;
   
   @computed get isLoading() {
     return this.requestQuantity > 0;

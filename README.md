@@ -37,7 +37,9 @@ PS：其他功能后续添加
 2.每个模块必须新建自己的store，有model必须新建model
 3.规范使用ts类型进行开发，尽量减少any类型
 4.所有页面背景使用compnoents/layouts下的UI组件，没有则新建
-5.所有页面使用页头注释，函数使用函数注释，模板如下（使用korofileheader类型插件）：
+5.所有的数据请求前后必须调用appStore的当前请求数量增减方法（increaseRequest、decreaseRequest）
+6.interface声明必须以I开头
+7.所有页面使用页头注释，函数使用函数注释，模板如下（使用korofileheader类型插件）：
 ## 页头注释 主要包括创建时间、人、描述    最后修改时间和人自动更新
 ## /*
 ## * @Date: 2019-06-21 17:01:50

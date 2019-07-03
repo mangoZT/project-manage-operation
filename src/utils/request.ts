@@ -2,7 +2,7 @@
  * @Date: 2019-06-20 14:21:25
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-06-24 20:20:32
+ * @LastEditTime: 2019-07-03 15:26:50
  * @Description: 数据请求工具类
  */
 
@@ -12,18 +12,27 @@ import { getConfig } from "@utils/config";
 
 const initConfig = getConfig();
 
-const getSign = str => md5(str + initConfig.application).toLocaleUpperCase();
+type sign= (param:any) => {
+
+}
+
+const getSign:sign = (params:string) => md5(params + initConfig.application).toLocaleUpperCase();
 
 class Functor {
-    constructor(value) {
+    value:string
+    constructor(value:string) {
         this.value = value;
     }
-    map(fn, ...rest) {
+    map(fn:any, ...rest:any[]) {
         return new Functor(fn(this.value, ...rest));
     }
 }
 
-const setHeaders = ({ headers, ...rest }, initialHeaders) => {
+type setHeadersParams = {
+    headers:any,
+    rest:any[]
+}
+const setHeaders = ({ headers, ...rest }:setHeadersParams, initialHeaders:any) => {
     return {
         headers: {
             ...headers,
@@ -33,7 +42,11 @@ const setHeaders = ({ headers, ...rest }, initialHeaders) => {
     };
 };
 
-const formatData = ({ method, data }, initialHeaders, getSign) => {
+type formatDataParam = {
+    method:string,
+    data:any
+}
+const formatData = ({ method, data }:formatDataParam, initialHeaders:any, getSign:sign) => {
     if (/upload/i.test(method)) {
         return {
             method: 'post',
@@ -66,8 +79,8 @@ const formatData = ({ method, data }, initialHeaders, getSign) => {
     };
 };
 
-async function requestDataProcess(url, options) {
-    const newOptions = new Functor(options)
+async function requestDataProcess(url:string, options:any) {
+    const newOptions:any = new Functor(options)
         .map(formatData, initConfig, getSign)
         .map(setHeaders, initConfig )
         .value;
@@ -76,6 +89,6 @@ async function requestDataProcess(url, options) {
     return result;
 }
 
-export default async function request(url, options) {
+export default async function request(url:string, options:any) {
     return requestDataProcess(url, options);
 }

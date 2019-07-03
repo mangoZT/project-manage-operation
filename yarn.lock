@@ -1143,6 +1143,10 @@ core-js@^2.4.0:
   version "2.6.9"
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.9.tgz?cache=0&sync_timestamp=1560599811627&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
 
+core-js@^3.1.3:
+  version "3.1.4"
+  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.1.4.tgz?cache=0&sync_timestamp=1560599811627&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.1.4.tgz#3a2837fc48e582e1ae25907afcd6cf03b0cc7a07"
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -3051,15 +3055,15 @@ mobx-react-lite@1.4.0, mobx-react-lite@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npm.taobao.org/mobx-react-lite/download/mobx-react-lite-1.4.0.tgz#193beb5fdddf17ae61542f65ff951d84db402351"
 
-mobx-react@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.npm.taobao.org/mobx-react/download/mobx-react-6.0.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmobx-react%2Fdownload%2Fmobx-react-6.0.3.tgz#8a6492ada0bc89988150cc60e718c99be3bbb8dd"
+mobx-react@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.npm.taobao.org/mobx-react/download/mobx-react-6.1.1.tgz#24a2c8a3393890fa732b4efd34cc6dcccf6e0e7a"
   dependencies:
     mobx-react-lite "1.4.0"
 
-mobx@^5.10.1:
-  version "5.10.1"
-  resolved "https://registry.npm.taobao.org/mobx/download/mobx-5.10.1.tgz#eb0e2ff76fe376d0a42c941533260deeae5956d8"
+mobx@4.11.0:
+  version "4.11.0"
+  resolved "https://registry.npm.taobao.org/mobx/download/mobx-4.11.0.tgz#c3bfcab96623d1f2f2eb4d1f01199c225f62361e"
 
 mockjs@^1.0.1-beta3:
   version "1.0.1-beta3"
@@ -5260,6 +5264,12 @@ ts-loader@^6.0.3:
     loader-utils "^1.0.2"
     micromatch "^4.0.0"
     semver "^6.0.0"
+
+ts-polyfill@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.npm.taobao.org/ts-polyfill/download/ts-polyfill-3.5.1.tgz#2b550f4e405b78bb36c68415f203e5e11de1d8f1"
+  dependencies:
+    core-js "^3.1.3"
 
 tslib@^1.9.0:
   version "1.10.0"

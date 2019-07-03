@@ -52,7 +52,7 @@ module.exports = {
             "@utils": path.join(__dirname, '../src/utils'),
             "@stores": path.join(__dirname, '../src/stores'),
         },
-        extensions: [".ts", ".tsx", ".js", 'config.js', ".json", '.less']
+        extensions: [".ts", ".tsx", ".js", 'config.js', ".json"]
     },
     module: {
         rules: [
@@ -95,7 +95,6 @@ module.exports = {
                 use: [
                     'style-loader', 
                     'css-loader',
-                    'postcss-loader',
                     { loader: 'less-loader', options: { javascriptEnabled: true } }
                 ]
             },

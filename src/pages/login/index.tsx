@@ -2,70 +2,77 @@
  * @Date: 2019-06-21 17:01:50
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-03 16:50:23
+ * @LastEditTime: 2019-07-11 11:28:59
  * @Description: 登录UI组件
  */
 
 import * as React from 'react';
 import { inject, observer } from "mobx-react";
-import { Layouts } from "@components/index";
-import { Button, Form, Input, Icon } from "antd";
+import { LoginLayout } from "@components/index";
+import { Button, Row, Input, Icon, Card } from "antd";
 const login = require("@images/login.png");
 const styles = require('./index.less');
 
+type Props ={
+    authStore:{
+        login:() =>{}
+        setuserName:(userName:string)=>{}
+        setPassword:(password:string)=>{}
+    }
+}
 
-const { Item } = Form;
-const Login = Form.create()(inject("authStore")(observer((props) => {
+const Login:React.FC<Props> = inject("authStore")(observer((props) => {
     
     /**
      * @description: 用户点击登录按钮，获取用户名密码登录
-     * @param {e}: e
+     * @param {e}
      * @return: void
      */  
     const handleSubmit = () => {
-        props.authStore.login()
+        props.authStore.login();
     };
 
-    const { getFieldDecorator } = props.form;
- 
+    /**
+     * @description: 
+     * @param {type:string,ev:Event} :字段类型，获取字段
+     * @return: 
+     */    
+    const handleChange = (type:string, ev ) => {
+    //    props.authStore.setuserName(ev);
+        console.log(ev)
+    }
 
     return (
-        <Layouts loading={false}>
-            <div className={styles["login-box"]}>
+        <LoginLayout loading={false}>
+            <Card className={styles["login-box"]} bordered={false}>
                 <img className={styles["login-icon"]} src={login} />
-                <Form className={styles["login-form"]}>
-                    <Item>
-                    {getFieldDecorator('username', {
-                        rules: [{ required: true, message: '请输入用户名' }],
-                    })(
+                <div className={styles["login-form"]}>
+                    <Row className={styles.row}>
                         <Input
-                        size="large"
-                        prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        placeholder="用户名"
+                            size="large"
+                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            placeholder="请输入用户名"
+                            onChange={handleChange.bind(null, "userName")}
                         />
-                    )}
-                    </Item>
-                    <Item>
-                    {getFieldDecorator('password', {
-                        rules: [{ required: true, message: '请输入密码' }],
-                    })(
+                    </Row>
+                    <Row className={styles.row}>
                         <Input
-                        size="large"
-                        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                        type="password"
-                        placeholder="密码"
+                            size="large"
+                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            type="password"
+                            placeholder="请输入密码"
+                            onChange={handleChange.bind(null, "password")}
                         />
-                    )}
-                    </Item>
-                    <Item style={{textAlign:'right'}}>
-                    <Button size="large" type="primary" onClick={handleSubmit} htmlType="submit" className={styles["login-form-button"]}>
-                        登录
-                    </Button>
-                    </Item>
-                </Form>
-            </div>
-        </Layouts>
+                    </Row>
+                    <Row className={styles.row} style={{textAlign:'right'}}>
+                        <Button size="large" type="primary" onClick={handleSubmit} htmlType="submit" className={styles["login-form-button"]}>
+                            登录
+                        </Button>
+                    </Row>
+                </div>
+            </Card>
+        </LoginLayout>
     )
-})))
+}))
 
 export default Login;

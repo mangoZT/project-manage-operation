@@ -2,7 +2,7 @@
  * @Date: 2019-06-18 17:53:50
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-03 16:26:38
+ * @LastEditTime: 2019-07-03 18:52:58
  * @Description: 项目入口
  */
 
@@ -14,7 +14,7 @@ import App from "./app";
 import stores from "./stores";
 import  "./index.less";
 
-import '../mock/mock';
+// import '../mock/mock';
 
 ReactDOM.render(
     <Provider {...stores}>

@@ -2,16 +2,16 @@
  * @Date: 2019-06-21 16:47:31
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-03 15:28:05
+ * @LastEditTime: 2019-07-05 14:35:29
  * @Description: 登录权限store
  */
 
 import { observable, action } from "mobx";
 
 class AuthStore {
-  api:any;
-  appStore:any;
-  @observable userName:string;
+  private api:any;
+  private appStore:any;
+  @observable userName:string="hu.zhu";
   @observable password:string;
 
   constructor(api:any, appStore:any) {

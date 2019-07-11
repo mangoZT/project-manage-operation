@@ -2,16 +2,18 @@
  * @Date: 2019-06-20 14:32:41
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-03 15:23:25
+ * @LastEditTime: 2019-07-05 11:14:25
  * @Description: 系统store  控制是否在loading，是否发生错误
  */
 
 import { observable, computed, action } from "mobx";
 
 class AppStore {
-  @observable requestQuantity = 0;
+  @observable requestQuantity:number = 0;
   @observable error:string = null;
+  readonly projectName:string = "项目规范管理系统";
   
+  //若存在请求则为loading
   @computed get isLoading() {
     return this.requestQuantity > 0;
   }

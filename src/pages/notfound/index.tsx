@@ -6,7 +6,7 @@
  * @Description: 404页面组件
  */
 
-import * as React from 'react';
+import React from 'react';
 
 const NotFound = () => {
     return (

@@ -2,13 +2,13 @@
  * @Date: 2019-07-05 11:02:12
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-10 17:50:15
+ * @LastEditTime: 2019-07-16 11:01:14
  * @Description: 头部组件
  */
-import * as React from 'react';
+import React from 'react';
 import { PageHeader, Icon } from "antd";
 import { observer } from "mobx-react";
-const styles = require('./index.less');
+import styles from "./index.less";
 
 type Props = {
     projectName:string;
@@ -25,7 +25,7 @@ const UserComponent:React.FC<UserProps> = observer((props) => (
     </div>
 ))
 
-const HeaderComponent:React.FC<Props> = observer((props) => {
+const AntdHeader:React.FC<Props> = observer((props) => {
     return (
         <PageHeader 
             className={styles.header}
@@ -37,4 +37,4 @@ const HeaderComponent:React.FC<Props> = observer((props) => {
     );
 });
 
-export default HeaderComponent;
+export default AntdHeader;

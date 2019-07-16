@@ -2,49 +2,55 @@
  * @Date: 2019-06-21 17:01:50
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-11 11:28:59
+ * @LastEditTime: 2019-07-16 11:08:00
  * @Description: 登录UI组件
  */
 
-import * as React from 'react';
+import React from 'react';
 import { inject, observer } from "mobx-react";
-import { LoginLayout } from "@components/index";
-import { Button, Row, Input, Icon, Card } from "antd";
-const login = require("@images/login.png");
-const styles = require('./index.less');
+import { LoginLayout, AntdCard } from "@components/index";
+import { Button, Row, Input, Icon } from "antd";
+import login from "@images/login.png";
+import styles from "./index.less";
 
 type Props ={
+    history:any;
     authStore:{
-        login:() =>{}
-        setuserName:(userName:string)=>{}
-        setPassword:(password:string)=>{}
+        login():void
+        setuserName(userName:string):void
+        setPassword(password:string):void
     }
 }
 
-const Login:React.FC<Props> = inject("authStore")(observer((props) => {
+const Login:React.FC<Props> = inject("authStore")(observer(({ authStore, history }) => {
     
     /**
      * @description: 用户点击登录按钮，获取用户名密码登录
      * @param {e}
      * @return: void
      */  
-    const handleSubmit = () => {
-        props.authStore.login();
+    const handleSubmit = ():void => {
+        // authStore.login();
+        history.push("/manage/project");
     };
 
     /**
      * @description: 
-     * @param {type:string,ev:Event} :字段类型，获取字段
+     * @param {type,ev:} :字段类型 dom元素
      * @return: 
      */    
-    const handleChange = (type:string, ev ) => {
-    //    props.authStore.setuserName(ev);
-        console.log(ev)
+    const handleChange = (type:string, ev:React.ChangeEvent<HTMLInputElement> ):void => {
+        const { value } = ev.target;
+        if(type==="userName"){
+            authStore.setuserName(ev.target.value)
+        }else{
+            authStore.setPassword(ev.target.value)
+        }
     }
 
     return (
         <LoginLayout loading={false}>
-            <Card className={styles["login-box"]} bordered={false}>
+            <AntdCard>
                 <img className={styles["login-icon"]} src={login} />
                 <div className={styles["login-form"]}>
                     <Row className={styles.row}>
@@ -70,7 +76,7 @@ const Login:React.FC<Props> = inject("authStore")(observer((props) => {
                         </Button>
                     </Row>
                 </div>
-            </Card>
+            </AntdCard>
         </LoginLayout>
     )
 }))

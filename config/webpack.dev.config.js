@@ -5,21 +5,21 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
     entry:{
-        app:'./src/index.tsx',
+        app:['ts-polyfill', './src/index.tsx'],
         vendor: ['react', 'react-router-dom', 'react-dom', 'mobx', 'mobx-react', 'mobx-react-lite', 'lodash']
     },
     mode:"development",
     devtool: 'cheap-module-eval-source-map',
     output:{
-        path:path.join(__dirname, '../dist'),
-        filename:'[name].js',
-        chunkFilename:'[name].js'
+        filename:'[name].[hash:8].js',
+        publicPath:'/',// 访问内容的前缀
+        chunkFilename:'[name].[hash:8].js'
     },
     devServer:{
+        // publicPath:"/",// 存放的路径
         host: '0.0.0.0',
         port:'8080',
         hot:true,
-        publicPath:'/',
         historyApiFallback:true, // 解决启动后刷新404
         // proxy: { // 配置服务代理
         //     '/api': {
@@ -51,6 +51,7 @@ module.exports = {
             "@models": path.join(__dirname, '../src/models'),
             "@utils": path.join(__dirname, '../src/utils'),
             "@stores": path.join(__dirname, '../src/stores'),
+            "@typing": path.join(__dirname, '../src/typing'),
         },
         extensions: [".ts", ".tsx", ".js", 'config.js', ".json"]
     },
@@ -59,7 +60,7 @@ module.exports = {
             {
                 test: /\.(ts|tsx)?$/,
                 use: [
-                    'ts-loader',
+                    'awesome-typescript-loader',
                     {
                         loader: 'ui-component-loader',
                         options: {

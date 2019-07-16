@@ -2,12 +2,12 @@
  * @Date: 2019-06-18 17:53:50
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-03 18:52:58
+ * @LastEditTime: 2019-07-12 19:44:58
  * @Description: 项目入口
  */
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
 import _ from "lodash";
 import App from "./app";

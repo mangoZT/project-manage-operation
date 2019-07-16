@@ -2,19 +2,20 @@
  * @Date: 2019-06-21 16:47:31
  * @Author: zhuhu
  * @LastEditors: zhuhu
- * @LastEditTime: 2019-07-05 14:35:29
+ * @LastEditTime: 2019-07-15 17:09:45
  * @Description: 登录权限store
  */
 
 import { observable, action } from "mobx";
+import { IAppStore, IApis } from "common-module";
 
 class AuthStore {
-  private api:any;
-  private appStore:any;
+  private api:IApis;
+  private appStore:IAppStore;
   @observable userName:string="hu.zhu";
   @observable password:string;
 
-  constructor(api:any, appStore:any) {
+  constructor(api:IApis, appStore:IAppStore) {
     this.api = api;
     this.appStore = appStore;
   }
@@ -35,7 +36,7 @@ class AuthStore {
       if (!data.error) {
         return Promise.resolve();
       } else {
-        this.appStore.setError(data.error);
+        // this.appStore.setError(data.error);
         return Promise.reject();
       }
     }));
